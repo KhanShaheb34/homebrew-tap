@@ -1,18 +1,15 @@
 cask "gg" do
   version "0.3.0"
-  sha256 "bc1862475c7c1ea7e9df1ef12129698d590719e714b6031fe2945982adfb31f9"
+  sha256 "c50f6291dcb0c4ea44d13f081297f902589e13cb58de009437192c2ead4065a5"
 
-  url "https://gg.shakirul.com/download/gg-macos-universal.dmg",
-      verified: "gg.shakirul.com/download/"
+  url "https://github.com/KhanShaheb34/gg/releases/download/v#{version}/gg-macos-universal.dmg"
   name "gg"
   desc "Small, fast desktop Git client with a commit graph and worktrees"
   homepage "https://github.com/KhanShaheb34/gg"
 
   livecheck do
-    url "https://gg.shakirul.com/latest.json"
-    strategy :json do |json|
-      json["version"]
-    end
+    url :url
+    strategy :github_latest
   end
 
   depends_on macos: :monterey
