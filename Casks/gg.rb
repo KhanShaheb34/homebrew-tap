@@ -16,6 +16,14 @@ cask "gg" do
 
   app "gg.app"
 
+  # gg is not notarized (that needs a paid Apple developer account), so macOS would refuse to
+  # open the quarantined app. Homebrew has already checked the download against the sha256
+  # above; this removes the quarantine flag so gg opens like any other app.
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args: ["-dr", "com.apple.quarantine", "{{appdir}}/gg.app"]
+  end
+
   zap trash: [
     "~/Library/Application Support/com.shakirul.gg",
     "~/Library/Caches/com.shakirul.gg",
@@ -23,10 +31,8 @@ cask "gg" do
   ]
 
   caveats <<~EOS
-    gg is not notarized by Apple, so macOS will refuse to open it the first time.
-    Open System Settings → Privacy & Security and choose Open Anyway beside the
-    message about gg, or run:
-
-      xattr -cr /Applications/gg.app
+    gg is not notarized by Apple. This cask removes the quarantine flag from
+    gg.app after checking the download's sha256, so it opens without the
+    "Apple could not verify" message.
   EOS
 end
