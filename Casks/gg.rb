@@ -1,6 +1,6 @@
 cask "gg" do
-  version "0.3.0"
-  sha256 "c50f6291dcb0c4ea44d13f081297f902589e13cb58de009437192c2ead4065a5"
+  version "0.3.1"
+  sha256 "42d7c626b3859f2ac70d77e8f0bec4f316dfb265b003c10524d42437cf1a80d7"
 
   url "https://github.com/KhanShaheb34/gg/releases/download/v#{version}/gg-macos-universal.dmg"
   name "gg"
@@ -15,6 +15,9 @@ cask "gg" do
   depends_on macos: :monterey
 
   app "gg.app"
+  # The gg terminal command: the launcher inside the app, which finds the app by its bundle
+  # identifier. gg shows it as installed by Homebrew and leaves it alone.
+  binary "#{appdir}/gg.app/Contents/Resources/gg"
 
   # gg is not notarized (that needs a paid Apple developer account), so macOS would refuse to
   # open the quarantined app. Homebrew has already checked the download against the sha256
