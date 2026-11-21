@@ -20,5 +20,5 @@ sha256 and then removes the quarantine flag from `gg.app`, so it opens like any 
 If you would rather keep macOS's check and approve gg yourself, download the disk image
 from the [releases page](https://github.com/KhanShaheb34/gg/releases) instead.
 
-To update: `brew upgrade --cask gg`. To remove: `brew uninstall --cask gg`
+From 0.4.0 gg updates itself, so there is nothing to do; `brew upgrade --cask gg` works too. To remove: `brew uninstall --cask gg`
 (add `--zap` to also remove its settings).

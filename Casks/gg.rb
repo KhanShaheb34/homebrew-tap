@@ -1,6 +1,6 @@
 cask "gg" do
-  version "0.3.1"
-  sha256 "42d7c626b3859f2ac70d77e8f0bec4f316dfb265b003c10524d42437cf1a80d7"
+  version "0.4.0"
+  sha256 "a7db5ae4c160c17511807168de64d6155cf7839a6528dc44038d3787c35a7c50"
 
   url "https://github.com/KhanShaheb34/gg/releases/download/v#{version}/gg-macos-universal.dmg"
   name "gg"
@@ -12,6 +12,9 @@ cask "gg" do
     strategy :github_latest
   end
 
+  # From 0.4.0 gg updates itself (signed updates from its GitHub releases), so a plain
+  # "brew upgrade" leaves it alone; "brew upgrade --cask gg" still upgrades it.
+  auto_updates true
   depends_on macos: :monterey
 
   app "gg.app"
