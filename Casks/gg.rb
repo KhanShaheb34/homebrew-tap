@@ -1,6 +1,6 @@
 cask "gg" do
-  version "0.5.2"
-  sha256 "5641b348187ae901174c4062130c9f81dfb85d266623dd6fe19185ad53682523"
+  version "0.5.3"
+  sha256 "4f189ea9195e05d6bba4ce090f7bc368cb57002ed28461ed8ae3f26d90203f8b"
 
   url "https://github.com/KhanShaheb34/gg/releases/download/v#{version}/gg-macos-universal.dmg"
   name "gg"
